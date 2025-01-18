@@ -3,33 +3,43 @@ session_start();
 require_once './database/database.php';
 require_once './class/Student.php';
 require_once './class/Instructor.php';
+
 if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
     $email= $_POST['email'];
     $psswrd = $_POST['pssword'];
+    
+
     if( $email === 'admin@gmail.com' && $psswrd === 'admin123'){
-        header('Location: ./dash.php');
+        $_SESSION['user'] = [1,'Mahjoub Cherkaoui'];
+        header('Location: ../views/admin/categories.php');
     }
     $user = User :: findByEmail($email);
     var_dump($user->getRole());
     if($user->getRole() === 'student'){
-         $student = student :: login($email,$psswrd);
+        $std = new student(null,$user->getFisrtName(),$user->getLastName(),$user->getEmail(),$user->getRole(),$user->getPassword(),$user->getProfileImage(),$user->getStatus());
+         $student = $std->login($email,$psswrd);
          var_dump($student);
          var_dump("maaaaaaaaaaaaaaaaaaaaaaa".$student->getEmail());
          header('Location: ../views/cours.php');
-         $_SESSION['user'] = $student;
+         $_SESSION['user'] = serialize($std);
+        //  var_dump($_SESSION['user']);
 
 
     }else if($user->getRole() === 'instructor'){
-     $instructor = instructor :: login($email,$psswrd);
+    $inst = new instructor(null,$user->getFisrtName(),$user->getLastName(),$user->getEmail(),$user->getRole(),$user->getPassword(),$user->getProfileImage(),$user->getStatus());
+     $instructor = $inst->login($email,$psswrd);
       var_dump($instructor);
+    $_SESSION['user'] = serialize($inst);
         if($instructor->getStatus() === 'pandding'){
+            // var_dump( $_SESSION['user']);
             header('Location: ./pandding.php');
+            
              } else if($instructor->getStatus() === 'susspend'){
             header('Location: ./susspend.php');
                 
             } else {
             header('Location: ../views/coursdetail.php');
-                 $_SESSION['user'] = $instructor;
+                //  var_dump( $_SESSION['user']);
             }
       
 
