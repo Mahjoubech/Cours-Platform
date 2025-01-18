@@ -133,16 +133,17 @@ require_once 'File.php';
         return $user->save();
     }
 
-    public static function login($email, $password) {
+    public function login($email, $password) {
       return 0;
     }
-    public function logout(): void
+    public static function logout()
     {
         session_start();
         session_destroy();
         session_unset();
     }
 }
+
 // if (isset($_FILES['fileToUpload'])) {
 //     var_dump($_FILES['fileToUpload']);
 //     $gn = $_FILES['fileToUpload'];
