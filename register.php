@@ -17,12 +17,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signbtn'])) {
     $photo = $_FILES['photoprofile'];
     $password = $_POST['password'];
     $role = $_POST['role'];
-    $status = $role === 'student' ? 'active' : 'pending';
-
+    $status = $role === 'student' ? 'active' : 'pandding';
+    var_dump($role);
+    var_dump($status);
     try {
         $sign = User::signup($first, $last, $email, $password, $photo, $role, $status);
         if ($sign) {
-            header("Location: success.php"); // Redirect on successful signup
+            header("Location: login.php"); 
             exit;
         }
     } catch (Exception $e) {
@@ -139,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signbtn'])) {
                 </div>
 
                 <!-- Signup Form -->
-                <form method="POST" action="#" enctype="multipart/form-data" class="space-y-6">
+                <form method="POST" action="" enctype="multipart/form-data" class="space-y-6">
                     <!-- Profile Photo -->
                     <div class="flex justify-center mb-6">
                         <div class="relative group">
