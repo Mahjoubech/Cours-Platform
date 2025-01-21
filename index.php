@@ -39,19 +39,19 @@ $grid_courses = array_slice($courses, 0, 6);
 <!-- main container -->
     <div class="min-h-screen flex flex-col">
 
-        <div class="hidden md:block w-full bg-[#f2b212] text-white">
+        <div class="hidden md:block w-full bg-blue-400 text-white">
             <div class="container mx-auto px-4 py-2">
                 <div class="flex justify-between items-center text-sm">
                     <div class="flex items-center space-x-6">
                         <span class="flex items-center">
-                            <i class="ri-phone-line mr-2"></i> +212 772508881
+                            <i class="ri-phone-line mr-2"></i> +212 684153876
                         </span>
                         <span class="flex items-center">
-                            <i class="ri-mail-line mr-2"></i> contact@youdemy.com
+                            <i class="ri-mail-line mr-2"></i> contact@taalim.com
                         </span>
                     </div>
                     <span class="flex items-center">
-                        <i class="ri-map-pin-line mr-2"></i> Massira N641 Safi, Morocco
+                        <i class="ri-map-pin-line mr-2"></i> Ennehda N641 Chichaoua, Morocco
                     </span>
                 </div>
             </div>
@@ -102,10 +102,10 @@ $grid_courses = array_slice($courses, 0, 6);
                 <div class="text-center space-y-6">
                     <h1 class="text-4xl md:text-5xl font-bold">
                         Learn Anything, Anytime, Anywhere <br>
-                        <span class="text-gradient md:leading-relaxed">Your Future Starts Here</span>
+                        <span class="text-blue-700 md:leading-relaxed">Your Future Starts Here</span>
                     </h1>
                     <p class="text-gray-600 md:text-lg">
-                        Empower Your Mind with World-Class Learning – Join Youdemy Today
+                        Empower Your Mind with World-Class Learning – Join Taalim Today
                     </p>
 
                     <!-- Search Form -->

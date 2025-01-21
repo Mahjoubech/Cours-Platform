@@ -83,7 +83,7 @@ if (isset($_SESSION['course_message'])) {
                 <nav class="hidden md:flex items-center space-x-6">
                     <?php foreach ($menuItems as $item): ?>
                         <a href="<?= htmlspecialchars($item[1]) ?>"
-                            class="text-gray-900 hover:text-yellow-500 transition-colors">
+                            class="text-gray-900 hover:text-blue-500 transition-colors">
                             <?= htmlspecialchars($item[0]) ?>
                         </a>
                     <?php endforeach; ?>
@@ -91,9 +91,9 @@ if (isset($_SESSION['course_message'])) {
                 <div class="flex items-center space-x-4">
                     <?php if (!$isLoggedIn): ?>
                         <a href="./login.php"
-                            class="p-2 px-4 bg-yellow-400 text-white rounded-full hover:bg-white hover:text-yellow-400 hover:border hover:border-yellow-400 transition-colors">Login</a>
+                            class="p-2 px-4 bg-blue-400 text-white rounded-full hover:bg-white hover:text-blue-400 hover:border hover:border-blue-400 transition-colors">Login</a>
                         <a href="./register.php"
-                            class="p-2 px-4 border border-yellow-400 text-yellow-400 rounded-full hover:bg-yellow-400 hover:text-white transition-colors">Register</a>
+                            class="p-2 px-4 border border-blue-400 text-blue-400 rounded-full hover:bg-blue-400 hover:text-white transition-colors">Register</a>
                     <?php else: ?>
                         <a href="./logout.php"
                             class="p-2 px-4 bg-red-400 text-white rounded-full hover:bg-white hover:text-red-400 hover:border hover:border-red-400 transition-colors">Logout</a>
@@ -109,7 +109,7 @@ if (isset($_SESSION['course_message'])) {
                 <div class="p-5">
                     <div class="flex items-center">
                         <div class="flex-shrink-0">
-                            <i class="ri-book-open-line text-2xl text-yellow-400"></i>
+                            <i class="ri-book-open-line text-2xl text-blue-400"></i>
                         </div>
                         <div class="ml-5 w-0 flex-1">
                             <dl>
@@ -126,7 +126,7 @@ if (isset($_SESSION['course_message'])) {
                 <div class="p-5">
                     <div class="flex items-center">
                         <div class="flex-shrink-0">
-                            <i class="ri-user-line text-2xl text-yellow-400"></i>
+                            <i class="ri-user-line text-2xl text-blue-400"></i>
                         </div>
                         <div class="ml-5 w-0 flex-1">
                             <dl>
@@ -141,7 +141,7 @@ if (isset($_SESSION['course_message'])) {
                 <div class="p-5">
                     <div class="flex items-center">
                         <div class="flex-shrink-0">
-                            <i class="ri-bar-chart-line text-2xl text-yellow-400"></i>
+                            <i class="ri-bar-chart-line text-2xl text-blue-400"></i>
                         </div>
                         <div class="ml-5 w-0 flex-1">
                             <dl>
@@ -161,7 +161,7 @@ if (isset($_SESSION['course_message'])) {
             <div class="px-4 py-5 sm:px-6 flex justify-between items-center">
                 <h2 class="text-xl font-semibold text-gray-900">Course Management</h2>
                 <button id="newCourseBtn"
-                    class="inline-flex items-center px-4 py-2 border border-transparent rounded-full shadow-sm text-sm font-medium text-white bg-yellow-400 hover:bg-yellow-500">
+                    class="inline-flex items-center px-4 py-2 border border-transparent rounded-full shadow-sm text-sm font-medium text-white bg-blue-400 hover:bg-blue-500">
                     <i class="ri-add-line mr-2"></i>
                     New Course
                 </button>
@@ -199,7 +199,7 @@ if (isset($_SESSION['course_message'])) {
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <span
-                                            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
                                             <?= htmlspecialchars($course['category'] ?: 'Uncategorized'); ?>
                                         </span>
                                     </td>
@@ -214,7 +214,7 @@ if (isset($_SESSION['course_message'])) {
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
 
-                                        <button class="text-yellow-600 hover:text-yellow-900 mr-4"
+                                        <button class="text-blue-600 hover:text-blue-900 mr-4"
                                             onclick="window.location.href='editCourse.php?id=<?php echo $course['id']; ?>'">
                                             <i class="ri-edit-line text-lg"></i>
                                         </button>
@@ -245,14 +245,14 @@ if (isset($_SESSION['course_message'])) {
                     <div>
                         <label for="title" class="block text-sm font-medium text-gray-700 mb-4">Title</label>
                         <input type="text" name="title" id="title" required
-                            class="mt-1 block w-full rounded-md p-2 border border-gray-200 shadow-sm focus:border-yellow-500 focus:ring-yellow-500">
+                            class="mt-1 block w-full rounded-md p-2 border border-gray-200 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                     </div>
 
                     <div>
                         <label for="description"
                             class="block text-sm font-medium text-gray-700 mb-4">Description</label>
                         <textarea id="description" name="description" rows="3" required
-                            class="mt-1 block w-full rounded-md border border-gray-200 shadow-sm focus:border-yellow-500 focus:ring-yellow-500"></textarea>
+                            class="mt-1 block w-full rounded-md border border-gray-200 shadow-sm focus:border-blue-500 focus:ring-blue-500"></textarea>
                     </div>
 
                     <div class="grid grid-cols-3 gap-4">
@@ -261,7 +261,7 @@ if (isset($_SESSION['course_message'])) {
                             <div class="relative">
                                 <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500">$</span>
                                 <input type="number" name="price" id="price" min="0" step="0.01" required
-                                    class="mt-1 block w-full rounded-md p-2 pl-7 border border-gray-200 shadow-sm focus:border-yellow-500 focus:ring-yellow-500">
+                                    class="mt-1 block w-full rounded-md p-2 pl-7 border border-gray-200 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                             </div>
                         </div>
 
@@ -269,7 +269,7 @@ if (isset($_SESSION['course_message'])) {
                             <label for="difficulty"
                                 class="block text-sm font-medium text-gray-700 mb-4">Difficulty</label>
                             <select id="difficulty" name="difficulty" required
-                                class="mt-1 block w-full rounded-md p-2 border border-gray-200 shadow-sm focus:border-yellow-500 focus:ring-yellow-500">
+                                class="mt-1 block w-full rounded-md p-2 border border-gray-200 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                                 <option value="Beginner">Beginner</option>
                                 <option value="Intermediate">Intermediate</option>
                                 <option value="Advanced">Advanced</option>
@@ -283,7 +283,7 @@ if (isset($_SESSION['course_message'])) {
                                     <div class="relative">
                                         <input type="number" name="duration_hours" id="duration_hours" min="0"
                                             placeholder="0" required
-                                            class="mt-1 block w-full rounded-md p-2 pr-14 border border-gray-200 shadow-sm focus:border-yellow-500 focus:ring-yellow-500 text-center">
+                                            class="mt-1 block w-full rounded-md p-2 pr-14 border border-gray-200 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-center">
                                         <span
                                             class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 text-sm">hours</span>
                                     </div>
@@ -292,7 +292,7 @@ if (isset($_SESSION['course_message'])) {
                                     <div class="relative">
                                         <input type="number" name="duration_minutes" id="duration_minutes" min="0"
                                             max="59" placeholder="0" required
-                                            class="mt-1 block w-full rounded-md p-2 pr-16 border border-gray-200 shadow-sm focus:border-yellow-500 focus:ring-yellow-500 text-center">
+                                            class="mt-1 block w-full rounded-md p-2 pr-16 border border-gray-200 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-center">
                                         <span
                                             class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 text-sm">mins</span>
                                     </div>
@@ -308,7 +308,7 @@ if (isset($_SESSION['course_message'])) {
                             <div class="space-y-1 text-center">
                                 <div class="flex text-sm text-gray-600 justify-center">
                                     <label for="file-upload-thumbnail"
-                                        class="relative cursor-pointer text-center bg-white rounded-md font-medium text-yellow-400 hover:text-yellow-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-yellow-500">
+                                        class="relative cursor-pointer text-center bg-white rounded-md font-medium text-blue-400 hover:text-blue-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500">
                                         <span class="text-center">Upload thumbnail</span>
                                         <input id="file-upload-thumbnail" name="file-upload-thumbnail" type="file"
                                             required class="sr-only">
@@ -323,7 +323,7 @@ if (isset($_SESSION['course_message'])) {
                     <div>
                         <label for="category" class="block text-sm font-medium text-gray-700 mb-4">Category</label>
                         <select id="category" name="category" required
-                            class="mt-1 block p-2 w-full rounded-md border border-gray-200 shadow-sm focus:border-yellow-500 focus:ring-yellow-500">
+                            class="mt-1 block p-2 w-full rounded-md border border-gray-200 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                             <?php
                             foreach ($categories as $cat) {
                                 echo "<option value=\"" . $cat['id'] . "\">" . htmlspecialchars($cat['name']) . "</option>";
@@ -339,7 +339,7 @@ if (isset($_SESSION['course_message'])) {
                         <div id="available-tags" class="space-y-2 space-x-1">
                             <?php
                             foreach ($tags as $tag) {
-                                echo "<div class='tag-item space-x-2 inline-block p-2 px-4 border border-yellow-400 rounded-full cursor-pointer hover:bg-yellow-400' data-tag-id='" . $tag['id'] . "'>
+                                echo "<div class='tag-item space-x-2 inline-block p-2 px-4 border border-blue-400 rounded-full cursor-pointer hover:bg-blue-400' data-tag-id='" . $tag['id'] . "'>
                                           <span class='tag-name'>" . htmlspecialchars($tag['name']) . "</span>
                                       </div>";
                             }
@@ -372,7 +372,7 @@ if (isset($_SESSION['course_message'])) {
                                 <div class="space-y-1">
                                     <div class="flex text-sm text-gray-600 text-center justify-center">
                                         <label for="file-upload-video"
-                                            class="relative cursor-pointer bg-white rounded-md font-medium text-yellow-400 hover:text-yellow-400 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-yellow-500">
+                                            class="relative cursor-pointer bg-white rounded-md font-medium text-blue-400 hover:text-blue-400 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500">
                                             <span>Upload video</span>
                                             <input id="file-upload-video" name="file-upload-video" type="file"
                                                 class="sr-only">
@@ -391,7 +391,7 @@ if (isset($_SESSION['course_message'])) {
                                 <div class="space-y-1 text-center">
                                     <div class="flex text-sm text-gray-600 justify-center">
                                         <label for="file-upload-document"
-                                            class="relative cursor-pointer text-center bg-white rounded-md font-medium text-yellow-400 hover:text-yellow-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-yellow-500">
+                                            class="relative cursor-pointer text-center bg-white rounded-md font-medium text-blue-400 hover:text-blue-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500">
                                             <span class="text-center">Upload file</span>
                                             <input id="file-upload-document" name="file-upload-document" type="file"
                                                 class="sr-only">
@@ -406,7 +406,7 @@ if (isset($_SESSION['course_message'])) {
 
                     <div class="flex justify-end">
                         <button type="submit"
-                            class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-full text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
+                            class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-full text-white bg-blue-400 hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                             Create Course
                         </button>
                     </div>
@@ -415,28 +415,28 @@ if (isset($_SESSION['course_message'])) {
         </div>
 
         <!-- Footer Section -->
-        <footer class="bg-yellow-10 py-16">
+        <footer class="bg-blue-10 py-16">
             <div>
                 <div class="mb-16">
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
                         <div
-                            class="bg-yellow-50 p-6 rounded-lg text-center hover:bg-transparent hover:border hover:border-yellow-400 hover:scale-95 transition-transform duration-300">
-                            <i class="ri-team-line text-2xl text-yellow-500 mb-2"></i>
+                            class="bg-blue-50 p-6 rounded-lg text-center hover:bg-transparent hover:border hover:border-blue-400 hover:scale-95 transition-transform duration-300">
+                            <i class="ri-team-line text-2xl text-blue-500 mb-2"></i>
                             <p class="font-medium">Community</p>
                         </div>
                         <div
-                            class="bg-yellow-50 p-6 rounded-lg text-center hover:bg-transparent hover:border hover:border-yellow-400 hover:scale-95 transition-transform duration-300">
-                            <i class="ri-link text-2xl text-yellow-500 mb-2"></i>
+                            class="bg-blue-50 p-6 rounded-lg text-center hover:bg-transparent hover:border hover:border-blue-400 hover:scale-95 transition-transform duration-300">
+                            <i class="ri-link text-2xl text-blue-500 mb-2"></i>
                             <p class="font-medium">Referrals</p>
                         </div>
                         <div
-                            class="bg-yellow-50 p-6 rounded-lg text-center hover:bg-transparent hover:border hover:border-yellow-400 hover:scale-95 transition-transform duration-300">
-                            <i class="ri-book-2-line text-2xl text-yellow-500 mb-2"></i>
+                            class="bg-blue-50 p-6 rounded-lg text-center hover:bg-transparent hover:border hover:border-blue-400 hover:scale-95 transition-transform duration-300">
+                            <i class="ri-book-2-line text-2xl text-blue-500 mb-2"></i>
                             <p class="font-medium">Assignments</p>
                         </div>
                         <div
-                            class="bg-yellow-50 p-6 rounded-lg text-center  hover:bg-transparent hover:border hover:border-yellow-400 hover:scale-95 transition-transform duration-300">
-                            <i class="ri-medal-line text-2xl text-yellow-500 mb-2"></i>
+                            class="bg-blue-50 p-6 rounded-lg text-center  hover:bg-transparent hover:border hover:border-blue-400 hover:scale-95 transition-transform duration-300">
+                            <i class="ri-medal-line text-2xl text-blue-500 mb-2"></i>
                             <p class="font-medium">Certificates</p>
                         </div>
                     </div>
@@ -452,21 +452,21 @@ if (isset($_SESSION['course_message'])) {
                             vulputate sapien nec sagittis.</p>
                         <div class="flex gap-4">
                             <div
-                                class="h-9 w-9 bg-yellow-400 flex justify-center items-center rounded-lg hover:border hover:border-yellow-400 hover:bg-transparent hover:text-yellow-400">
+                                class="h-9 w-9 bg-blue-400 flex justify-center items-center rounded-lg hover:border hover:border-blue-400 hover:bg-transparent hover:text-blue-400">
                                 <a href="#" class="p-2 transition-colors">
                                     <i class="ri-facebook-fill text-xl "></i>
                                 </a>
                             </div>
 
                             <div
-                                class="h-9 w-9 bg-yellow-400 flex justify-center items-center rounded-lg hover:border hover:border-yellow-400 hover:bg-transparent hover:text-yellow-400">
+                                class="h-9 w-9 bg-blue-400 flex justify-center items-center rounded-lg hover:border hover:border-blue-400 hover:bg-transparent hover:text-blue-400">
                                 <a href="#" class="p-2 transition-colors">
                                     <i class="ri-instagram-line text-xl "></i>
                                 </a>
                             </div>
 
                             <div
-                                class="h-9 w-9 bg-yellow-400 flex justify-center items-center rounded-lg hover:border hover:border-yellow-400 hover:bg-transparent hover:text-yellow-400">
+                                class="h-9 w-9 bg-blue-400 flex justify-center items-center rounded-lg hover:border hover:border-blue-400 hover:bg-transparent hover:text-blue-400">
                                 <a href="#" class="p-2 transition-colors">
                                     <i class="ri-youtube-fill text-xl "></i>
                                 </a>
@@ -499,9 +499,9 @@ if (isset($_SESSION['course_message'])) {
                         <h3 class="text-lg font-semibold mb-4">Our Newsletter</h3>
                         <div class="flex gap-2">
                             <input type="email" placeholder="Enter Your Email"
-                                class="flex-1 px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-yellow-500">
+                                class="flex-1 px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-blue-500">
                             <button
-                                class="px-6 py-2 bg-yellow-400 text-white rounded-lg hover:bg-yellow-500 transition-colors">Submit</button>
+                                class="px-6 py-2 bg-blue-400 text-white rounded-lg hover:bg-blue-500 transition-colors">Submit</button>
                         </div>
                         <p class="text-sm text-gray-600 mt-4">
                             By clicking "Subscribe", you agree to our

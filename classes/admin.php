@@ -135,9 +135,10 @@ class Admin extends User {
         if ($stmt->execute()) {
             $result = $stmt->get_result();
             $row = $result->fetch_assoc();
-            return $row['averageRate'];
+            return $row['averageRate'] ?? 0.0;
         }
-        return null; 
+       
+        return 0.0; 
     }
 
     public function getTotalEnrollment() {

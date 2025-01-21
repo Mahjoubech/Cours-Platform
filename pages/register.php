@@ -54,8 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 <body>
     <style>
         .selected {
-            border-color: #fbbf24;
-            color: #fbbf24;
+            border-color:rgb(36, 172, 251);
+            color: rgb(36, 172, 251);
         }
     </style>
 
