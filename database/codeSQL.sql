@@ -12,6 +12,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+ALTER TABLE `users` ADD `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP;
 
 -- Categories table
 CREATE TABLE `categories` (
@@ -41,7 +42,10 @@ CREATE TABLE `courses` (
   CONSTRAINT `courses_ibfk_1` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`id`) ON DELETE SET NULL,
   CONSTRAINT `fk_instructor` FOREIGN KEY (`instructorId`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
+ALTER TABLE `courses`
+ADD COLUMN `document` varchar(500) DEFAULT NULL,
+ADD COLUMN `type` varchar(50) DEFAULT NULL,
+ADD COLUMN `status` varchar(50) DEFAULT NULL;
 -- Tags table
 CREATE TABLE `tags` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -72,7 +76,8 @@ CREATE TABLE `enrollment` (
   CONSTRAINT `enrollment_ibfk_1` FOREIGN KEY (`studentId`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   CONSTRAINT `enrollment_ibfk_2` FOREIGN KEY (`courseId`) REFERENCES `courses` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
+ALTER TABLE `enrollment`
+ADD COLUMN `completionRate` int DEFAULT NULL;
 -- Statistics table
 CREATE TABLE `statistics` (
   `courseId` int NOT NULL,
@@ -102,3 +107,7 @@ CREATE TABLE `students` (
   PRIMARY KEY (`studentId`),
   CONSTRAINT `students_ibfk_1` FOREIGN KEY (`studentId`) REFERENCES `users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+
