@@ -50,14 +50,14 @@ $courses = $student->getMyCourses();
                 <div class="flex justify-between items-center text-sm">
                     <div class="flex items-center space-x-6">
                         <span class="flex items-center">
-                            <i class="ri-phone-line mr-2"></i> +212 772508881
+                            <i class="ri-phone-line mr-2"></i> +212 684153876
                         </span>
                         <span class="flex items-center">
-                            <i class="ri-mail-line mr-2"></i> contact@youdemy.com
+                            <i class="ri-mail-line mr-2"></i> contact@taalim.com
                         </span>
                     </div>
                     <span class="flex items-center">
-                        <i class="ri-map-pin-line mr-2"></i> Massira N641 Safi, Morocco
+                        <i class="ri-map-pin-line mr-2"></i> Ennahda N641 Chichaoua, Morocco
                     </span>
                 </div>
             </div>
