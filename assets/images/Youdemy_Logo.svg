@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="120" viewBox="0 0 300 120">
+  <defs>
+    <!-- Modern gradient definitions -->
+    <linearGradient id="titleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2E3192">
+        <animate attributeName="stop-color" 
+                 values="#2E3192;#1BFFFF;#2E3192" 
+                 dur="4s" 
+                 repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#1BFFFF">
+        <animate attributeName="stop-color" 
+                 values="#1BFFFF;#2E3192;#1BFFFF" 
+                 dur="4s" 
+                 repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+
+    <!-- Glow effect -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Animated background shapes -->
+  <g transform="translate(0, 0)">
+    <!-- Abstract educational symbols -->
+    <path d="M40,60 A20,20 0 1,1 80,60 L80,80 L40,80 Z" 
+          fill="#4FC3F7" 
+          opacity="0.9"
+          transform="rotate(-15, 60, 60)">
+      <animate attributeName="opacity" 
+               values="0.9;0.7;0.9" 
+               dur="3s" 
+               repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Pencil icon -->
+    <g transform="translate(100, 40) rotate(45)">
+      <rect x="0" y="0" width="40" height="8" fill="#FFC107" rx="2">
+        <animate attributeName="width" 
+                 values="40;42;40" 
+                 dur="2s" 
+                 repeatCount="indefinite"/>
+      </rect>
+      <path d="M40,0 L48,4 L40,8 Z" fill="#FF5722">
+        <animate attributeName="fill" 
+                 values="#FF5722;#FF7043;#FF5722" 
+                 dur="2s" 
+                 repeatCount="indefinite"/>
+      </path>
+    </g>
+  </g>
+
+  <!-- Main text with modern styling -->
+  <g transform="translate(50, 0)">
+    <text x="100" y="70" 
+          font-family="Arial, sans-serif" 
+          font-size="48" 
+          font-weight="bold" 
+          fill="url(#titleGradient)" 
+          filter="url(#glow)">
+      TAALIM
+      <animate attributeName="font-size" 
+               values="48;50;48" 
+               dur="3s" 
+               repeatCount="indefinite"/>
+    </text>
+  </g>
+
+  <!-- Modern decorative elements -->
+  <g>
+    <!-- Floating dots -->
+    <circle cx="240" cy="40" r="3" fill="#4FC3F7">
+      <animate attributeName="cy" 
+               values="40;35;40" 
+               dur="2s" 
+               repeatCount="indefinite"/>
+      <animate attributeName="opacity" 
+               values="1;0.5;1" 
+               dur="2s" 
+               repeatCount="indefinite"/>
+    </circle>
+    <circle cx="250" cy="50" r="2" fill="#FFC107">
+      <animate attributeName="cy" 
+               values="50;45;50" 
+               dur="2.5s" 
+               repeatCount="indefinite"/>
+      <animate attributeName="opacity" 
+               values="1;0.5;1" 
+               dur="2.5s" 
+               repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- Underline accent -->
+  <path d="M80,85 L220,85" 
+        stroke="url(#titleGradient)" 
+        stroke-width="3" 
+        stroke-linecap="round">
+    <animate attributeName="stroke-width" 
+             values="3;4;3" 
+             dur="2s" 
+             repeatCount="indefinite"/>
+  </path>
+</svg>
