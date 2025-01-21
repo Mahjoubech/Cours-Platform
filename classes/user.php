@@ -148,10 +148,8 @@ abstract class User
             ];
         case 'Instructor':
             return [
-                ['Dashbord', "{$basePath}pages/instructor_dashboard.php"],
-                ['My Courses', "{$basePath}pages/my_courses.php"],
-                ['Statistics', "{$basePath}pages/statistics.php"],
-                ['Help Center', "{$basePath}pages/contact.php"],
+                ['Dashbord', "{$basePath}pages/instructor_dashboard.php"]
+        
             ];
         default:
             return [
