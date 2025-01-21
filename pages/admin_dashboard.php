@@ -37,7 +37,7 @@ $recentEnrollments = $admin->getRecentEnrollments(10);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taalim - Admin Dashboard</title>
+    <title>Youdemy - Admin Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.svg">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -232,11 +232,7 @@ $recentEnrollments = $admin->getRecentEnrollments(10);
                         <div class="flex items-center justify-between">
                             <h2 class="text-lg font-semibold">Recent Enrollments</h2>
                             <div class="flex items-center gap-4">
-                                <select class="text-sm border rounded px-2 py-1">
-                                    <option>Last 7 Days</option>
-                                    <option>Last 30 Days</option>
-                                    <option>Last 90 Days</option>
-                                </select>
+                                <a href=""><button class="text-sm text-yellow-400 font-bold underline hover:text-yellow-700">View All</button></a>
                             </div>
                         </div>
                     </div>
