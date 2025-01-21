@@ -96,18 +96,18 @@ class Instructor extends User {
         $courses = [];
     
         $query = "
-            SELECT 
-                c.id, 
-                c.title, 
-                cat.name AS category, 
-                COUNT(DISTINCT e.studentId) AS students 
-                c.status
-            FROM courses c
-            LEFT JOIN categories cat ON c.categoryId = cat.id
-            LEFT JOIN enrollment e ON e.courseId = c.id
-            WHERE c.instructorId = ?
-            GROUP BY c.id
-        ";
+        SELECT 
+            c.id, 
+            c.title, 
+            cat.name AS category, 
+            COUNT(DISTINCT e.studentId) AS students,
+            c.status
+        FROM courses c
+        LEFT JOIN categories cat ON c.categoryId = cat.id
+        LEFT JOIN enrollment e ON e.courseId = c.id
+        WHERE c.instructorId = ?
+        GROUP BY c.id
+    ";
         $stmt = $connection->prepare($query);
         if ($stmt) {
             $stmt->bind_param("i", $instructorId);
@@ -143,7 +143,9 @@ class Instructor extends User {
             $stmt->fetch();
             $stmt->close();
         }
-    
+        if ($averageCompletionRate === null) {
+            $averageCompletionRate = 0; 
+        }
         return round($averageCompletionRate, 2);
     }
     
