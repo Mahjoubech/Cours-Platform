@@ -47,19 +47,19 @@ $totalPages = ceil($totalCourses / $limit);
     <!-- main container -->
     <div class="flex flex-col">
 
-        <div class="hidden md:block w-full bg-[#f2b212] text-white">
+    <div class="hidden md:block w-full bg-blue-400 text-white">
             <div class="container mx-auto px-4 py-2">
                 <div class="flex justify-between items-center text-sm">
                     <div class="flex items-center space-x-6">
                         <span class="flex items-center">
-                            <i class="ri-phone-line mr-2"></i> +212 772508881
+                            <i class="ri-phone-line mr-2"></i> +212 684153876
                         </span>
                         <span class="flex items-center">
-                            <i class="ri-mail-line mr-2"></i> contact@youdemy.com
+                            <i class="ri-mail-line mr-2"></i> contact@taalim.com
                         </span>
                     </div>
                     <span class="flex items-center">
-                        <i class="ri-map-pin-line mr-2"></i> Massira N641 Safi, Morocco
+                        <i class="ri-map-pin-line mr-2"></i> Ennahda N641 Chichaoua, Morocco
                     </span>
                 </div>
             </div>
@@ -79,7 +79,7 @@ $totalPages = ceil($totalCourses / $limit);
                             </a>
                         <?php endforeach; ?>
                     </nav>
-                    <div class="flex items-center space-x-4">
+                 <div class="flex items-center space-x-4">
                         <?php if (!$isLoggedIn): ?>
                             <button
                                 class="p-2 px-4 bg-blue-400 text-white rounded-full hover:bg-white hover:text-blue-400 hover:border hover:border-blue-400 transition-colors">
