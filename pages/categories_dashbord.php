@@ -9,7 +9,6 @@ if ($userRole != 'Admin') {
     header('Location: ../index.php');
 }
 $AdminId = $_SESSION['user_id'];
-var_dump($_SESSION['user_id']);
 $db = new Database();
 $category = new category($db);
 $categories = $category->getCategories();
@@ -22,7 +21,7 @@ $categories = $category->getCategories();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Youdemy - Admin Dashboard</title>
+    <title>Taalim - Admin Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.svg">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -48,7 +47,7 @@ $categories = $category->getCategories();
                         <span class="text-lg">Users</span>
                     </a>
                     <a href="./categories_dashbord.php"
-                        class="flex items-center gap-3 px-3 py-2 text-sm text-blue-400 rounded-md bg-gray-800">
+                        class="flex items-center gap-3 px-3 py-2 text-sm text-yellow-400 rounded-md bg-gray-800">
                         <i class="ri-apps-line text-xl"></i>
                         <span class="text-lg">Categories</span>
                     </a>
@@ -82,15 +81,15 @@ $categories = $category->getCategories();
             <header class="bg-white border-b p-4">
                 <div class="flex items-center justify-between max-w-7xl mx-auto">
                     <div>
-                        <h1 class="text-2xl font-semibold">Categories Management</h1>
+                        <h1 class="text-2xl font-semibold ml-3">Categories Management</h1>
                     </div>
                     <div class="flex items-center gap-4">
                         <div class="relative">
                             <i class="ri-search-line absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
                             <input type="text" placeholder="Enter catagory name"
-                                class="bg-gray-100 rounded-md pl-10 pr-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
+                                class="bg-gray-100 rounded-md pl-10 pr-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400">
                         </div>
-                        <button class="bg-blue-50 text-blue-600 px-4 py-2 rounded-md text-sm font-medium">Search
+                        <button class="bg-yellow-50 text-yellow-600 px-4 py-2 rounded-md text-sm font-medium">Search
                             </button>
                         <i class="ri-notification-line text-xl text-gray-400"></i>
                         <i class="ri-settings-3-line text-xl text-gray-400"></i>
@@ -103,7 +102,7 @@ $categories = $category->getCategories();
                     <form action="add_category.php" method="POST" class="flex items-center gap-4 p-6">
                         <input type="text" name="category_name" placeholder="Enter category name"
                             class="p-2 border border-gray-300 rounded-lg w-64" required>
-                        <button type="submit" class="bg-blue-500 text-white p-2 px-4 rounded-lg hover:bg-blue-600">
+                        <button type="submit" class="bg-yellow-500 text-white p-2 px-4 rounded-lg hover:bg-yellow-600">
                             Add Category
                         </button>
                     </form>
