@@ -15,7 +15,7 @@ class Admin extends User {
         $this->role = 'Admin';
     }
 
-    public function register($username, $email, $password) {}
+    // public function register($username, $email, $password) {}
 
     public function getUsers() {
         $stmt = $this->db->prepare('SELECT id, username, email, role, status FROM users');
