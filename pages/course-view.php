@@ -13,7 +13,9 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 
 $courseId = intval($_GET['id']);
 $course = new Course();
+
 $courseDetails = $course->getCourseById($courseId);
+
 $courseType = $courseDetails['type'];
 $instructorId = $courseDetails['instructorId'];
 $instructorInfo = $course->getInstructorInfo($instructorId);

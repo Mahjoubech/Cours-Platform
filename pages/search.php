@@ -37,7 +37,7 @@ $searchResults = $course->search($searchQuery);
     <!-- Main container -->
     <div class="min-h-screen flex flex-col">
         <!-- Top bar -->
-        <div class="hidden md:block w-full bg-[#f2b212] text-white">
+        <div class="hidden md:block w-full bg-blue-400 text-white">
             <div class="container mx-auto px-4 py-2">
                 <div class="flex justify-between items-center text-sm">
                     <div class="flex items-center space-x-6">
@@ -58,15 +58,15 @@ $searchResults = $course->search($searchQuery);
                     </a>
                     <nav class="hidden md:flex items-center space-x-6">
                         <?php foreach ($menuItems as $item): ?>
-                            <a href="<?= htmlspecialchars($item[1]) ?>" class="text-gray-900 hover:text-yellow-500 transition-colors">
+                            <a href="<?= htmlspecialchars($item[1]) ?>" class="text-gray-900 hover:text-blue-500 transition-colors">
                                 <?= htmlspecialchars($item[0]) ?>
                             </a>
                         <?php endforeach; ?>
                     </nav>
                     <div class="flex items-center space-x-4">
                         <?php if (!$isLoggedIn): ?>
-                            <a href="./login.php" class="p-2 px-4 bg-yellow-400 text-white rounded-full hover:bg-white hover:text-yellow-400 hover:border hover:border-yellow-400 transition-colors">Login</a>
-                            <a href="./register.php" class="p-2 px-4 border border-yellow-400 text-yellow-400 rounded-full hover:bg-yellow-400 hover:text-white transition-colors">Register</a>
+                            <a href="./login.php" class="p-2 px-4 bg-blue-400 text-white rounded-full hover:bg-white hover:text-blue-400 hover:border hover:border-blue-400 transition-colors">Login</a>
+                            <a href="./register.php" class="p-2 px-4 border border-blue-400 text-blue-400 rounded-full hover:bg-blue-400 hover:text-white transition-colors">Register</a>
                         <?php else: ?>
                             <a href="./logout.php" class="p-2 px-4 bg-red-400 text-white rounded-full hover:bg-white hover:text-red-400 hover:border hover:border-red-400 transition-colors">Logout</a>
                         <?php endif; ?>
@@ -78,7 +78,7 @@ $searchResults = $course->search($searchQuery);
         <!-- Hero Section -->
                 <!-- Hero Section -->
                 <section
-            class="hero bg-bg-yellow-500/5 flex-grow flex items-center bg-opacity-20 bg-[url('../assets/images/hero-bg1.png')]  bg-cover bg-center">
+            class="hero bg-bg-blue-500/5 flex-grow flex items-center bg-opacity-20 bg-[url('../assets/images/hero-bg1.png')]  bg-cover bg-center">
             <div class="container mx-auto flex flex-col items-center py-12 px-6 md:px-12">
                 <div class="text-center space-y-6">
                     <h1 class="text-4xl md:text-4xl font-bold">
@@ -89,9 +89,9 @@ $searchResults = $course->search($searchQuery);
                 <div class="mt-8 w-[40%]">
                         <form action="./search.php" method="GET" class="relative">
                             <input type="text" name="query" placeholder="What Do You Need To Learn?"
-                                class="w-full p-3 pl-4 rounded-full border border-gray-300 focus:outline-none focus:ring-1 focus:ring-yellow-500 focus:border-yellow-500">
+                                class="w-full p-3 pl-4 rounded-full border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500">
                             <button type="submit"
-                                class="bg-yellow-400 absolute right-1 top-1 bottom-1 px-4 text-white rounded-full hover:bg-yellow-500">
+                                class="bg-blue-400 absolute right-1 top-1 bottom-1 px-4 text-white rounded-full hover:bg-blue-500">
                                 Search
                             </button>
                         </form>
@@ -107,7 +107,7 @@ $searchResults = $course->search($searchQuery);
                     <?php if (!empty($searchResults)): ?>
                         <?php foreach ($searchResults as $result): ?>
                             <div
-                            class="bg-white border border-yellow-400 rounded-lg shadow-md p-4 hover:scale-105 transition-transform">
+                            class="bg-white border border-blue-400 rounded-lg shadow-md p-4 hover:scale-105 transition-transform">
                             <img src="../uploads/thumbnails/<?= htmlspecialchars($result['thumbnail']); ?>" alt="Course Image"
                                 class="rounded-t-lg w-full">
                             <div class="py-3">
@@ -118,8 +118,8 @@ $searchResults = $course->search($searchQuery);
                                 </h3>
                                 <p class="text-gray-600 text-sm mt-1"><?= htmlspecialchars($result['description']); ?></p>
                                 <div class="flex items-center justify-between mt-3">
-                                    <p class="text-yellow-400 font-bold"><?= htmlspecialchars($result['price']); ?> $</p>
-                                    <button class="font-bold underline text-yellow-400"><a
+                                    <p class="text-blue-400 font-bold"><?= htmlspecialchars($result['price']); ?> $</p>
+                                    <button class="font-bold underline text-blue-400"><a
                                             href="./course-preview.php?id=<?php echo $result['course_id']; ?>">View
                                             Course</a>
                                     </button>

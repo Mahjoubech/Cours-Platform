@@ -8,7 +8,7 @@ class Admin extends User {
     public function performAction(){
         return "hey" ;
     }
-
+ 
     public function __construct($db, $id) {
         $this->db = $db;
         $this->id = $id;

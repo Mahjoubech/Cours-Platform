@@ -268,10 +268,10 @@ $recentEnrollments = $admin->getRecentEnrollments(10);
                                         <div class="flex items-center gap-2">
                                             <div class="w-24 h-2 bg-gray-200 rounded-full">
                                                 <div class="h-full bg-yellow-400 rounded-full"
-                                                    style="width: <?= htmlspecialchars($enrollment['progress']) ?>%"></div>
+                                                    style="width: <?= htmlspecialchars($enrollment['progress'] ?? 0.0) ?>%"></div>
                                             </div>
                                             <span
-                                                class="text-sm text-gray-600"><?= htmlspecialchars($enrollment['progress']) ?>%</span>
+                                                class="text-sm text-gray-600"><?= htmlspecialchars($enrollment['progress'] ?? 0.0) ?>%</span>
                                         </div>
                                     </td>
                                     <td class="p-4 text-right text-gray-500">

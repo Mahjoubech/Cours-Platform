@@ -16,10 +16,23 @@ class Course
     protected $Duration;
     protected $Difficulty;
 
-    public function __construct()
-    {
+    public function __construct($id = null,$instructorId = null,$title = null,$description = null,$price = null,$categoryId = null,$thumbnail = null,$content = null,$createdDate = null,$studentCount = null,$Duration = null,$Difficulty = null) {
         $this->db = new Database();
+        $this->id = $id;
+        $this->instructorId = $instructorId;
+        $this->title = $title;
+        $this->description = $description;
+        $this->price = $price;
+        $this->categoryId = $categoryId;
+        $this->thumbnail = $thumbnail;
+        $this->content = $content;
+        $this->createdDate = $createdDate;
+        $this->studentCount = $studentCount;
+        $this->Duration = $Duration;
+        $this->Difficulty = $Difficulty;
     }
+
+
 
     public static function browseCourses($db, $limit, $offset)
     {
@@ -220,17 +233,19 @@ class Course
         }
     }
 
-    public function deleteCourse($courseId) {
+    public function deleteCourse($courseId)
+    {
         try {
             $stmt = $this->db->prepare("DELETE FROM courses WHERE id = ?");
-            $stmt->bind_param("i", $courseId); 
+            $stmt->bind_param("i", $courseId);
             return $stmt->execute();
         } catch (mysqli_sql_exception $e) {
             throw new Exception("Error deleting course: " . $e->getMessage());
         }
     }
 
-    public function updateCompletionRate($courseId, $studentId, $completionRate) {
+    public function updateCompletionRate($courseId, $studentId, $completionRate)
+    {
         $query = "UPDATE enrollment 
                   SET completionRate = ? 
                   WHERE courseId = ? AND studentId = ?";
@@ -240,16 +255,17 @@ class Course
             $stmt->bind_param("sii", $completionRate, $courseId, $studentId);
             return $stmt->execute();
         } else {
-            return false; 
+            return false;
         }
     }
 
-    public function getCourseTags($courseId) {
+    public function getCourseTags($courseId)
+    {
         $stmt = $this->db->prepare('SELECT t.id, t.name FROM Tags t 
                                     JOIN coursetag ct ON ct.tagId = t.id 
                                     WHERE ct.courseId = ?');
         if ($stmt) {
-            $stmt->bind_param('i', $courseId); 
+            $stmt->bind_param('i', $courseId);
             $stmt->execute();
             $result = $stmt->get_result();
             return $result->fetch_all(MYSQLI_ASSOC);
@@ -258,15 +274,16 @@ class Course
         }
     }
 
-    public function editCourse($id, $title, $description, $price, $difficulty, $duration, $thumbnail, $categoryId, $tags, $contentType, $contentFile) {
+    public function editCourse($id, $title, $description, $price, $difficulty, $duration, $thumbnail, $categoryId, $tags, $contentType, $contentFile)
+    {
         $thumbnailFileName = NULL;
         $documentFileName = NULL;
         $videoUrl = NULL;
-    
+
         if ($thumbnail) {
-            $thumbnailFileName = basename($thumbnail); 
+            $thumbnailFileName = basename($thumbnail);
         }
-    
+
         if ($contentFile) {
             if ($contentType === 'document') {
                 $documentFileName = basename($contentFile);
@@ -274,7 +291,7 @@ class Course
                 $videoUrl = basename($contentFile);
             }
         }
-    
+
         $query = "UPDATE courses 
                   SET title = ?, 
                       description = ?, 
@@ -287,43 +304,43 @@ class Course
                       document = CASE WHEN ? = 'document' AND ? IS NOT NULL THEN ? ELSE document END, 
                       videoUrl = CASE WHEN ? = 'video' AND ? IS NOT NULL THEN ? ELSE videoUrl END
                   WHERE id = ?";
-    
+
         $stmt = $this->db->prepare($query);
-    
+
         $stmt->bind_param(
-            "ssdissssssssssss", 
-            $title, 
-            $description, 
-            $price, 
-            $categoryId, 
-            $difficulty, 
-            $duration, 
-            $contentType, 
-            $thumbnailFileName, 
-            $thumbnailFileName, 
-            $contentType, 
-            $documentFileName, 
-            $documentFileName, 
+            "ssdissssssssssss",
+            $title,
+            $description,
+            $price,
+            $categoryId,
+            $difficulty,
+            $duration,
+            $contentType,
+            $thumbnailFileName,
+            $thumbnailFileName,
+            $contentType,
+            $documentFileName,
+            $documentFileName,
             $contentType,
             $videoUrl,
             $videoUrl,
             $id
         );
-    
+
         if ($stmt->execute()) {
             $deleteTagsQuery = "DELETE FROM coursetag WHERE courseId = ?";
             $deleteStmt = $this->db->prepare($deleteTagsQuery);
             $deleteStmt->bind_param("i", $id);
             $deleteStmt->execute();
-    
+
             if (!empty($tags)) {
                 if (is_string($tags)) {
                     $tags = explode(',', $tags);
                 }
-    
+
                 $tagQuery = "INSERT INTO coursetag (courseId, tagId) VALUES (?, ?)";
                 $tagStmt = $this->db->prepare($tagQuery);
-    
+
                 foreach ($tags as $tag) {
                     $tagStmt->bind_param("ii", $id, $tag);
                     if (!$tagStmt->execute()) {
@@ -331,7 +348,7 @@ class Course
                     }
                 }
             }
-    
+
             return true;
         } else {
             throw new Exception("Failed to update course: " . $stmt->error);
@@ -343,4 +360,3 @@ class Course
         $this->db->closeConnection();
     }
 }
-?>
