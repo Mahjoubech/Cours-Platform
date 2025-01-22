@@ -49,7 +49,7 @@ if (isset($_GET['message'])) {
 
 <body class="bg-gray-50">
     <div class="flex h-screen">
-        <aside class="w-64 bg-gray-900 text-white">
+        <aside class="w-64 bg-gray-900 text-white flex flex-col justify-between">
             <div class="p-4">
                 <div class="flex items-center gap-2 mb-8">
                     <img src="../assets/images/Youdemy_Logo.svg" alt="Youdemy Platform">
@@ -79,7 +79,7 @@ if (isset($_GET['message'])) {
                 </nav>
             </div>
 
-            <div class="absolute bottom-0 left-0 right-0 p-4">
+            <div class=" bottom-0 left-0 right-0 p-4">
                 <div class="flex items-center gap-3 mb-4">
                     <img src="../uploads/avatars/simple.png" alt="Profile" class="w-10 h-10 rounded-full">
                     <div>
@@ -159,9 +159,8 @@ if (isset($_GET['message'])) {
                                         <td class="p-4 flex items-center justify-end">
                                             <form action="users_dashbord.php" method="POST">
                                                 <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
-                                                <select name="status" class="border rounded-lg p-2 px-3"
-                                                    onchange="this.form.submit()">
-                                                    <option value="pending" <?php echo ($user['status'] == 'pending') ? 'selected' : ''; ?>>Pending</option>
+                                                <select name="status" class="border rounded-lg p-2 px-3">
+                                                     <option value="pending" <?php echo ($user['status'] == 'pending') ? 'selected' : ''; ?>>Pending</option>
                                                     <option value="suspended" <?php echo ($user['status'] == 'suspended') ? 'selected' : ''; ?>>Suspended</option>
                                                     <option value="activated" <?php echo ($user['status'] == 'activated') ? 'selected' : ''; ?>>Activated</option>
                                                 </select>

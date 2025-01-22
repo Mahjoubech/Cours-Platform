@@ -201,10 +201,16 @@ if (!$courseDetails) {
             <div class="w-[70%] border p-2 rounded-lg shadow-sm px-6 pb-8 pt-6">
                 <h3 class="font-semibold mb-2 text-xl pb-3 border-b text-blue-400 mb-3">Course Video</h3>
                 <div class="relative aspect-video rounded-lg overflow-hidden ">
-                    <video controls poster="../uploads/thumbnails/<?= htmlspecialchars($courseDetails['thumbnail']);?>">
-                        <source src="../uploads/videos/<?= htmlspecialchars($courseDetails['videoUrl']) ?>"
-                            type="video/mp4">
-                    </video>
+                    
+                    <iframe
+                        src="../uploads/videos/<?= htmlspecialchars($courseDetails['videoUrl']) ?>"
+                        width="640"
+                        height="360"
+                        frameborder="0"
+                        style="background: url('../uploads/thumbnails/<?= htmlspecialchars($courseDetails['thumbnail']); ?>') no-repeat center center; background-size: cover;">
+                        allowfullscreen>
+                    </iframe>
+
                 </div>
             </div>
             <!-- sidebar -->
